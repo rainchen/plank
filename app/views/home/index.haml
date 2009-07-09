@@ -1,0 +1,14 @@
+- form_for :session, :url => session_path do |form|
+#login-box
+  .text_field
+    = form.label :email
+    = form.text_field :email
+  .text_field
+    = form.label :password
+    = form.password_field :password
+  .form_button
+    = form.submit "Login", :disable_with => "Please wait..."
+    %input{ :type => "reset", :value => "Cancel" }
+  .form_link
+    = link_to "Register", new_user_path
+    - #= link_to "Forgot Password", new_password_path

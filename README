@@ -1,0 +1,78 @@
+== Setup
+  #Pre install
+  sudo gem install haml
+
+  # Installs all required gems
+  sudo rake gems:install
+
+  # Installing mysql gem if necessary
+  sudo apt-get install ruby1.8-dev
+  sudo apt-get install libmysqlclient-dev
+  sudo gem install mysql
+
+  # setup database config
+  cp config/database.yml.example config/database.yml
+
+  # Should migrate database every time after updaing codes from SCM
+  rake db:migrate
+
+  # Check if all requirements are ready
+  script/about
+
+  # Checkout what tasks can run
+  rake -T
+  # Checkout a task detail info
+  rake -D <taskname>
+
+  # setup gmail account
+  cp config/smtp_gmail.yml.example config/config/smtp_gmail.yml
+
+== Testing
+
+  # Installs all required gems for testing
+  sudo rake gems:install RAILS_ENV=test
+
+  # Prepare test db before running test  if necessary
+  rake cucumber:prepare
+
+  # Run test(should test every time before committing source codes)
+  cucumber features
+
+== Reference
+
+  Ruby on Rails guides
+  http://guides.rubyonrails.org/
+
+  Clearance: Rails authentication for developers who write tests
+  http://giantrobots.thoughtbot.com/2009/2/9/clearance-rails-authentication-for-developers-who-write-tests
+
+  Step Definitions - cucumber - GitHub
+  http://wiki.github.com/aslakhellesoy/cucumber/step-definitions
+
+  jRails is a drop-in jQuery replacement for Prototype/script.aculo.us on Rails.
+  http://github.com/aaronchi/jrails/tree/master
+
+  Paperclip: Attaching Files in Rails
+  http://jimneath.org/2008/04/17/paperclip-attaching-files-in-rails/
+
+  The application is called hoptoad, and it’s a hosted web service which can be used as an error reporting and analysis tool by Rails applications
+  http://giantrobots.thoughtbot.com/2008/7/18/little-green-friend
+
+  Clearance: Rails authentication for developers who write tests
+  http://giantrobots.thoughtbot.com/2009/2/9/clearance-rails-authentication-for-developers-who-write-tests
+
+  Rails authentication with email & password.
+  http://wiki.github.com/thoughtbot/clearance
+
+  Cucumber - Making BDD fun
+  http://cukes.info/
+
+  Cucumber is a tool that can execute plain-text documents as automated functional tests.
+  http://wiki.github.com/aslakhellesoy/cucumber
+
+  Install Cucumber, Webrat and RSpec
+  http://wiki.github.com/aslakhellesoy/cucumber/ruby-on-rails
+
+  Making Tests Easy on the Fingers and Eyes
+  http://www.thoughtbot.com/projects/shoulda/
+

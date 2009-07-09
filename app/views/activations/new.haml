@@ -1,0 +1,12 @@
+%h1
+  Activate Account
+%p
+  Enter your email,after submitting you will receive the activation link
+%div
+  - form_tag new_activation_path do
+    %div
+      = label_tag :email
+    %div
+      = text_field_tag :email, @user.email
+    %div
+      = submit_tag 'Activate my account'
