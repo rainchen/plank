@@ -1,0 +1,6 @@
+config/database.yml
+config/smtp_gmail.yml
+db/schema.rb
+log/
+nbproject/
+
