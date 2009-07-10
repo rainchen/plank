@@ -11,18 +11,24 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
 end
 
 Given /^I signed up with "(.*)\/(.*)"$/ do |email, password|
-  user = Factory :user, 
-    :email                 => email, 
+  user = Factory :user,
+    :email                 => email,
     :password              => password,
     :password_confirmation => password
-end 
+end
 
 Given /^I am signed up and confirmed as "(.*)\/(.*)"$/ do |email, password|
   user = Factory :user,
-    :email                 => email, 
+    :email                 => email,
     :password              => password,
     :password_confirmation => password,
     :active  => true
+end
+
+Given /^I am a confirmed user and signed in as "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
+  Given %{I am signed up and confirmed as "#{email}/#{password}"}
+  And %{I sign in as "#{email}/#{password}"}
+  @current_user ||= UserSession.find.user
 end
 
 # Session
