@@ -16,13 +16,14 @@ end
 
 namespace :cucumber do
   # Sets up the Rails environment for Cucumber
-  ENV["RAILS_ENV"] = "test"
+  ENV["RAILS_ENV"] = "test" # set env for db:seed
   desc "Prepare test database and seed data for cucumber"
   task :prepare => 'db:test:prepare'
   task :prepare => 'db:seed' if File.directory?("#{RAILS_ROOT}/db/fixtures")
   task :prepare do
     puts %q{It's ready for "cucumber features -n"}
   end
+  ENV["RAILS_ENV"] = RAILS_ENV # restore env
 
 end
 
