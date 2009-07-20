@@ -28,7 +28,7 @@ end
 Given /^I am a confirmed user and signed in as "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   Given %{I am signed up and confirmed as "#{email}/#{password}"}
   And %{I sign in as "#{email}/#{password}"}
-  @current_user ||= UserSession.find.user
+  @current_user = UserSession.find.user
 end
 
 # Session
